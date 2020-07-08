@@ -1,6 +1,7 @@
 package restfull.repository;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import restfull.model.Person;
 
 /**
@@ -10,5 +11,6 @@ import restfull.model.Person;
  * @version 5.0
  * @since 7/8/2020
  */
+@Repository
 public interface PersonRepository extends CrudRepository<Person, Integer> {
 }
