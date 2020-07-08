@@ -1,0 +1,20 @@
+language: java
+jdk: openjdk11
+
+sudo: false
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database person;' -U postgres
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  email:
+    recipients:
+      - david.klarson@mail.ru
+    on_success: never
+    on_failure: always
