@@ -14,8 +14,6 @@ import restfull.model.Person;
 import restfull.repository.PersonRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * PersonController.
@@ -35,9 +33,7 @@ public class PersonController {
 
     @GetMapping("/")
     public List<Person> findAll() {
-        return StreamSupport.stream(
-                this.persons.findAll().spliterator(), false)
-                .collect(Collectors.toList());
+        return (List<Person>) this.persons.findAll();
     }
 
     @GetMapping("/{id}")
@@ -49,14 +45,18 @@ public class PersonController {
 
     @PostMapping("/")
     public ResponseEntity<Person> create(@RequestBody Person person) {
-        return new ResponseEntity<>(
-                this.persons.save(person), HttpStatus.CREATED);
+            return new ResponseEntity<>(
+                    this.persons.save(person), HttpStatus.CREATED);
     }
 
     @PutMapping("/")
     public ResponseEntity<Person> update(@RequestBody Person person) {
-        this.persons.save(person);
-        return ResponseEntity.ok().build();
+        final boolean isPresent = this.persons.findById(person.getId()).isPresent();
+        if (isPresent) {
+            this.persons.save(person);
+            return new ResponseEntity<>(person, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(person, HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/{id}")
