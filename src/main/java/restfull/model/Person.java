@@ -25,6 +25,12 @@ public class Person {
     public Person() {
     }
 
+    public Person(final int aId, final String aLogin, final String aPassword) {
+        this.id = aId;
+        this.login = aLogin;
+        this.password = aPassword;
+    }
+
     public Integer getId() {
         return id;
     }
