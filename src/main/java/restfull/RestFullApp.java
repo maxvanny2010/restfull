@@ -2,6 +2,8 @@ package restfull;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * RestFullApp.
@@ -14,5 +16,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RestFullApp {
     public static void main(final String[] args) {
         SpringApplication.run(RestFullApp.class, args);
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

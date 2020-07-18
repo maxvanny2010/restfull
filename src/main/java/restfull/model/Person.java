@@ -19,15 +19,15 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    private String login;
+    private String username;
     private String password;
 
     public Person() {
     }
 
-    public Person(final int aId, final String aLogin, final String aPassword) {
+    public Person(final int aId, final String aUserName, final String aPassword) {
         this.id = aId;
-        this.login = aLogin;
+        this.username = aUserName;
         this.password = aPassword;
     }
 
@@ -39,12 +39,12 @@ public class Person {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(final String login) {
-        this.login = login;
+    public void setUsername(final String login) {
+        this.username = login;
     }
 
     public String getPassword() {
@@ -65,13 +65,13 @@ public class Person {
         }
         final Person person = (Person) o;
         return getId().equals(person.getId())
-                && getLogin().equals(person.getLogin())
+                && getUsername().equals(person.getUsername())
                 && getPassword().equals(person.getPassword());
     }
 
     @Override
     public final int hashCode() {
-        return Objects.hash(getId(), getLogin(), getPassword());
+        return Objects.hash(getId(), getUsername(), getPassword());
     }
 
     @Override
@@ -79,7 +79,7 @@ public class Person {
         return new StringJoiner(", ",
                 Person.class.getSimpleName() + "[", "]")
                 .add("id=" + this.id)
-                .add("login='" + this.login + "'")
+                .add("usename='" + this.username + "'")
                 .add("password='" + this.password + "'")
                 .toString();
     }

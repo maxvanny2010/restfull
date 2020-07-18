@@ -88,7 +88,7 @@ public class PersonControllerTest {
 
         final ArgumentCaptor<Person> argument = ArgumentCaptor.forClass(Person.class);
         verify(this.persons).save(argument.capture());
-        final String login = argument.getValue().getLogin();
+        final String login = argument.getValue().getUsername();
         assertEquals("NEW", login);
     }
 
@@ -104,7 +104,7 @@ public class PersonControllerTest {
 
         final ArgumentCaptor<Person> argument = ArgumentCaptor.forClass(Person.class);
         verify(this.persons).save(argument.capture());
-        final String login = argument.getValue().getLogin();
+        final String login = argument.getValue().getUsername();
         assertEquals("UPDATE", login);
     }
 
@@ -117,7 +117,7 @@ public class PersonControllerTest {
                 .andExpect(status().isOk());
         final ArgumentCaptor<Person> argument = ArgumentCaptor.forClass(Person.class);
         verify(this.persons).delete(argument.capture());
-        final String login = argument.getValue().getLogin();
+        final String login = argument.getValue().getUsername();
         assertNull(login);
     }
 }
