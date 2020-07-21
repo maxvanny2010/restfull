@@ -12,6 +12,9 @@ before_script:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
+env:
+  global: CODECOV_TOKEN=:a04a9d67-033e-44bc-9c77-224cf44b3fd8
+
 notifications:
   email:
     recipients:
