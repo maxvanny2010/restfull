@@ -20,6 +20,7 @@ public class RestFullApp extends SpringBootServletInitializer {
     public static void main(final String[] args) {
         SpringApplication.run(RestFullApp.class, args);
     }
+
     @Override
     protected final SpringApplicationBuilder configure(
             final SpringApplicationBuilder application) {

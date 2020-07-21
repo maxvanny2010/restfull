@@ -1,7 +1,6 @@
 package restfull.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,7 +24,6 @@ import static restfull.filter.JWTAuthenticationFilter.SIGN_UP_URL;
  * @version 5.0
  * @since 7/18/2020
  */
-@Configuration
 @EnableWebSecurity
 public class WebConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsServiceIml userDetailsService;

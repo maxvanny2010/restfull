@@ -1,6 +1,7 @@
 package restfull.repository;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import restfull.model.Person;
 
 import java.util.ArrayList;
